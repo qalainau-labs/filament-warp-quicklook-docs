@@ -2,6 +2,12 @@
 
 All notable changes to `qalainau/filament-warp-quicklook` are documented here.
 
+## [1.0.1] - 2026-11-19
+
+### Fixed
+
+- **`warpQuickLook is not defined` in the console** when a page re-renders with Livewire before Quick Look's script has arrived (for example when moving from another page to a list in a panel with other Warp plugins; Quick Look worked after a moment). Filament's `x-load` holds back the Alpine component until its script is downloaded, but a Livewire re-render inside another Alpine component evaluates `warpQuickLook()` earlier. Quick Look now registers an empty `warpQuickLook` in the panel's scripts, which the real one replaces when it arrives.
+
 ## [1.0.0] - 2026-11-19
 
 ### Added
