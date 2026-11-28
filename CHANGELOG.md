@@ -2,6 +2,14 @@
 
 All notable changes to `qalainau/filament-warp-quicklook` are documented here.
 
+## [Unreleased]
+
+## [1.0.2] - 2026-11-28
+
+### Fixed
+
+- **The slide-over could stay open and empty on a busy server, covering the table.** When Livewire dropped or cancelled the answer to opening a record (it does this under load, when you move away, or when you press next/previous quickly), the slide-over stayed open without its content and the page behind it could not be clicked. Opening is now asked once more, and if there is still no answer the slide-over closes. Hover cards and the pinned card are also asked once more instead of showing "not found". Previous/next and back are never sent twice (that would move two records), and none of these show an error in the browser console any more.
+
 ## [1.0.1] - 2026-11-19
 
 ### Fixed
